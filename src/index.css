@@ -1,0 +1,231 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: oklch(79.2% 0.209 151.711); /* green-400 del portafolio original */
+  --color-brand-2: oklch(78.9% 0.154 211.53); /* cyan-400 */
+  --color-ink: #07090c; /* fondo */
+  --color-card: #0b0f12; /* fondo sólido de las tarjetas con .border-glow */
+  --color-on-brand: #07090c; /* texto sobre los botones degradados */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-ink text-zinc-100 font-sans antialiased;
+  }
+  ::selection {
+    @apply bg-brand text-on-brand;
+  }
+
+  /* Fondo: rejilla sutil + manchas de color que se mueven */
+  body::before,
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+  }
+  body::before {
+    --line: color-mix(in oklch, var(--color-white) 5%, transparent);
+    background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse at top, black 20%, transparent 70%);
+  }
+  body::after {
+    inset: -20%;
+    background:
+      radial-gradient(35% 35% at 20% 15%, color-mix(in oklch, var(--color-brand) 22%, transparent), transparent 70%),
+      radial-gradient(30% 30% at 85% 30%, color-mix(in oklch, var(--color-brand-2) 18%, transparent), transparent 70%),
+      radial-gradient(30% 30% at 50% 90%, color-mix(in oklch, var(--color-brand) 10%, transparent), transparent 70%);
+    filter: blur(40px);
+    animation: aurora 22s ease-in-out infinite alternate;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2 text-sm font-semibold
+      transition-[translate,background-color,border-color,color,box-shadow] duration-300
+      hover:-translate-y-0.5 active:translate-y-0 disabled:pointer-events-none disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply bg-linear-to-r from-brand to-brand-2 text-on-brand hover:brightness-110;
+  }
+  .btn-ghost {
+    @apply border border-white/15 bg-white/5 hover:border-brand/60 hover:bg-brand/10 hover:text-brand;
+  }
+  .btn-danger {
+    @apply border border-red-400/40 text-red-400 hover:bg-red-400 hover:text-on-brand;
+  }
+  .input {
+    @apply w-full rounded-xl border border-white/10 bg-black/30 px-3.5 py-2.5 outline-none transition
+      placeholder:text-zinc-500 focus:border-brand/70 focus:ring-4 focus:ring-brand/15;
+  }
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.3em] text-brand;
+  }
+  .text-gradient {
+    @apply bg-linear-to-r from-brand via-brand-2 to-brand bg-[length:200%_auto] bg-clip-text text-transparent;
+    animation: shimmer 6s linear infinite;
+  }
+
+  /* Luz que sigue al ratón (las tarjetas actualizan --x/--y) */
+  .spotlight {
+    position: relative;
+  }
+  .spotlight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: inherit;
+    pointer-events: none;
+    background: radial-gradient(350px circle at var(--x, 50%) var(--y, 50%), color-mix(in oklch, var(--color-brand) 14%, transparent), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .spotlight:hover::before {
+    opacity: 1;
+  }
+
+  /* Borde degradado que gira (proyectos destacados) */
+  .border-glow {
+    border-color: transparent;
+    background:
+      linear-gradient(var(--color-card), var(--color-card)) padding-box,
+      conic-gradient(from var(--angle), var(--color-brand), var(--color-brand-2), transparent 35%, transparent 65%, var(--color-brand)) border-box;
+    animation: spin-angle 5s linear infinite;
+  }
+
+  /* Barras de habilidades: crecen al entrar en pantalla */
+  .skill-bar > div {
+    @apply relative h-full overflow-hidden rounded-full bg-linear-to-r from-brand to-brand-2;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) calc(var(--delay, 0ms) + 300ms);
+  }
+  .skill-bar > div::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.6), transparent);
+    animation: sweep 2.8s ease-in-out infinite;
+  }
+  .is-visible .skill-bar > div {
+    transform: scaleX(1);
+  }
+
+  /* Palabras del hero (ver RotatingTraits.jsx) */
+  .trait {
+    animation:
+      trait 2.4s cubic-bezier(0.2, 0.7, 0.2, 1) both,
+      shimmer 6s linear infinite;
+  }
+
+  /* Barra de progreso de scroll (solo navegadores con scroll-driven animations) */
+  .scroll-progress {
+    display: none;
+  }
+  @supports (animation-timeline: scroll()) {
+    .scroll-progress {
+      display: block;
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 60;
+      height: 3px;
+      transform-origin: left;
+      background: linear-gradient(90deg, var(--color-brand), var(--color-brand-2));
+      animation: grow-x linear both;
+      animation-timeline: scroll();
+    }
+  }
+
+  /* Animaciones al entrar en pantalla (ver hooks/useReveal.js) */
+  .reveal {
+    opacity: 0;
+  }
+  .reveal[data-anim="right"] {
+    --from: translateX(-48px);
+  }
+  .reveal.is-visible {
+    animation: reveal 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) var(--delay, 0ms) both;
+  }
+  .reveal.is-visible.border-glow {
+    animation:
+      reveal 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) var(--delay, 0ms) both,
+      spin-angle 5s linear infinite;
+  }
+
+  .toast {
+    animation: toast 0.4s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: var(--from, translateY(40px));
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+@keyframes trait {
+  0% { opacity: 0; transform: translateY(60%) rotateX(-90deg); filter: blur(6px); }
+  18%, 82% { opacity: 1; transform: none; filter: none; }
+  100% { opacity: 0; transform: translateY(-60%) rotateX(90deg); filter: blur(6px); }
+}
+@keyframes aurora {
+  to { transform: translate3d(4%, -3%, 0) rotate(8deg) scale(1.1); }
+}
+@keyframes shimmer {
+  to { background-position: 200% center; }
+}
+@keyframes spin-angle {
+  to { --angle: 360deg; }
+}
+@keyframes sweep {
+  from { transform: translateX(-100%); }
+  60%, to { transform: translateX(100%); }
+}
+@keyframes grow-x {
+  from { transform: scaleX(0); }
+}
+@keyframes float {
+  50% { translate: 0 -12px; }
+}
+@keyframes toast {
+  from { opacity: 0; transform: translateY(16px) scale(0.96); }
+}
+
+@utility animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; }
+  .skill-bar > div { transform: none; }
+}

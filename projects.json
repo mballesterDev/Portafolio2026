@@ -1,0 +1,205 @@
+[
+  {
+    "id": "random-users",
+    "title": "Random Users (prueba técnica)",
+    "description": "Lista de usuarios de la API randomuser.me con filtro por país, ordenación, coloreado de filas, borrado y restauración del estado inicial.",
+    "category": "React",
+    "technologies": [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "API REST"
+    ],
+    "repoUrl": "https://github.com/mballesterDev/react-random-users",
+    "demoUrl": "https://mballesterdev.github.io/react-random-users/",
+    "image": "/uploads/random-users.png",
+    "featured": false
+  },
+  {
+    "id": "cart-app",
+    "title": "Cart App",
+    "description": "Tienda de postres con carrito de la compra: añadir, quitar y ajustar cantidades, con estado gestionado mediante Context y un hook useCart.",
+    "category": "React",
+    "technologies": [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Context API"
+    ],
+    "repoUrl": "https://github.com/mballesterDev/CartAppV2",
+    "demoUrl": "https://mballesterdev.github.io/CartAppV2/",
+    "image": "/uploads/cart-app.png",
+    "featured": true
+  },
+  {
+    "id": "generador-tweets",
+    "title": "Generador de tweets",
+    "description": "Generador de tarjetas de tweets con React.",
+    "category": "React",
+    "technologies": [
+      "React",
+      "CSS"
+    ],
+    "repoUrl": "https://github.com/mballesterDev/twittCardGeneratorManelDev",
+    "demoUrl": "https://mballesterdev.github.io/twittCardGeneratorManelDev/",
+    "image": "/uploads/generador-tweets.png",
+    "featured": false
+  },
+  {
+    "id": "todo-react",
+    "title": "ToDo App",
+    "description": "App de tareas con múltiples funcionalidades y dark mode.",
+    "category": "React",
+    "technologies": [
+      "React",
+      "Dark mode"
+    ],
+    "repoUrl": "https://github.com/mballesterDev/toDo_ReactDarkMode",
+    "demoUrl": "https://mballesterdev.github.io/toDo_ReactDarkMode/",
+    "image": "/uploads/todo-react.png",
+    "featured": false
+  },
+  {
+    "id": "pokedex-react",
+    "title": "PokeAPI",
+    "description": "Pokédex consumiendo la PokeAPI, con paginación y dark mode.",
+    "category": "React",
+    "technologies": [
+      "React",
+      "API REST"
+    ],
+    "repoUrl": "https://github.com/mballesterDev/pokedex-react",
+    "demoUrl": "https://mballesterdev.github.io/pokedex-react/",
+    "image": "/uploads/pokedex-react.png",
+    "featured": false
+  },
+  {
+    "id": "tictactoe-react",
+    "title": "Tic Tac Toe",
+    "description": "Tic Tac Toe utilizando React.",
+    "category": "React",
+    "technologies": [
+      "React"
+    ],
+    "repoUrl": "https://github.com/mballesterDev/TicTacToe-React",
+    "demoUrl": "https://mballesterdev.github.io/TicTacToe-React/",
+    "image": "/uploads/tictactoe-react.png",
+    "featured": false
+  },
+  {
+    "id": "calculadora",
+    "title": "Calculadora",
+    "description": "Calculadora táctil con JavaScript.",
+    "category": "JavaScript",
+    "technologies": [
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ],
+    "repoUrl": "https://github.com/mballesterDev/Calculadora-mejorada-y-coemntada.git",
+    "demoUrl": "https://mballesterdev.github.io/Calculadora-mejorada-y-coemntada/",
+    "image": "/uploads/calculadora.png",
+    "featured": false
+  },
+  {
+    "id": "tres-en-raya",
+    "title": "3 en raya",
+    "description": "3 en raya con JavaScript vanilla.",
+    "category": "JavaScript",
+    "technologies": [
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ],
+    "repoUrl": "https://github.com/mballesterDev/3-en-raya-rePractica",
+    "demoUrl": "https://mballesterdev.github.io/3-en-raya-rePractica/",
+    "image": "/uploads/tres-en-raya.png",
+    "featured": false
+  },
+  {
+    "id": "teclado",
+    "title": "Teclado táctil",
+    "description": "Teclado táctil con JavaScript.",
+    "category": "JavaScript",
+    "technologies": [
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ],
+    "repoUrl": "https://github.com/mballesterDev/Teclado-basico-js",
+    "demoUrl": "https://mballesterdev.github.io/Teclado-basico-js/",
+    "image": "/uploads/teclado.png",
+    "featured": false
+  },
+  {
+    "id": "web-viajes",
+    "title": "Web de viajes Bootstrap",
+    "description": "Template de web de viajes responsive utilizando solo Bootstrap.",
+    "category": "HTML / CSS",
+    "technologies": [
+      "Bootstrap",
+      "HTML",
+      "CSS"
+    ],
+    "repoUrl": "https://github.com/mballesterDev/web-viajes-bs",
+    "demoUrl": "https://mballesterdev.github.io/web-viajes-bs/",
+    "image": "/uploads/web-viajes.png",
+    "featured": false
+  },
+  {
+    "id": "web-tattoo",
+    "title": "Web tattoo",
+    "description": "Template responsive de la web de un estudio de tatuajes utilizando solo Bootstrap.",
+    "category": "HTML / CSS",
+    "technologies": [
+      "Bootstrap",
+      "HTML",
+      "CSS"
+    ],
+    "repoUrl": "https://github.com/mballesterDev/tatooWebBT",
+    "demoUrl": "https://mballesterdev.github.io/tatooWebBT/",
+    "image": "/uploads/web-tattoo.png",
+    "featured": false
+  },
+  {
+    "id": "vuelos",
+    "title": "Gestor de vuelos JavaFX",
+    "description": "Gestión de vuelos: crear, filtrar y borrar.",
+    "category": "Java",
+    "technologies": [
+      "Java",
+      "JavaFX"
+    ],
+    "repoUrl": "https://github.com/mballesterDev/AppVuelos",
+    "demoUrl": "",
+    "image": "/uploads/vuelos.png",
+    "featured": false
+  },
+  {
+    "id": "propinas",
+    "title": "Calculadora de propinas JavaFX",
+    "description": "App para calcular propinas.",
+    "category": "Java",
+    "technologies": [
+      "Java",
+      "JavaFX"
+    ],
+    "repoUrl": "https://github.com/mballesterDev/AppPropinasJavaFX",
+    "demoUrl": "",
+    "image": "/uploads/propinas.png",
+    "featured": false
+  },
+  {
+    "id": "tienda-ropa",
+    "title": "Gestión tienda de ropa",
+    "description": "Sistema de gestión en Java vanilla con diferentes funcionalidades.",
+    "category": "Java",
+    "technologies": [
+      "Java"
+    ],
+    "repoUrl": "https://github.com/mballesterDev/AppTiendaRopa",
+    "demoUrl": "",
+    "image": "/uploads/tienda-ropa.png",
+    "featured": false
+  }
+]

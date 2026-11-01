@@ -1,5 +1,51 @@
 [
   {
+    "id": "test-yourself",
+    "title": "TestYourself Cambridge",
+    "description": "Plataforma para practicar los exámenes de Cambridge English (B1, B2, C1 y C2): Reading, Use of English, Listening, Writing y Speaking.",
+    "category": "React",
+    "technologies": [
+      "React",
+      "React Router",
+      "Tailwind CSS"
+    ],
+    "repoUrl": "",
+    "demoUrl": "https://testyourselfcambridge.netlify.app/",
+    "image": "/uploads/test-yourself.png",
+    "featured": true
+  },
+  {
+    "id": "manel-teacher",
+    "title": "Manel Teacher",
+    "description": "Web de clases de español online con cursos y ejercicios gratis por niveles, calendario de clases, chat y tienda, en inglés y español.",
+    "category": "React",
+    "technologies": [
+      "React",
+      "React Router",
+      "Tailwind CSS",
+      "Stripe"
+    ],
+    "repoUrl": "",
+    "demoUrl": "https://manelteacher.es/",
+    "image": "/uploads/manel-teacher.png",
+    "featured": false
+  },
+  {
+    "id": "gamer-signup",
+    "title": "Gamer Signup Form",
+    "description": "Formulario de alta de jugador con estética gamer, requisitos por campo y panel que muestra el progreso del registro.",
+    "category": "React",
+    "technologies": [
+      "React",
+      "TypeScript",
+      "Tailwind CSS"
+    ],
+    "repoUrl": "https://github.com/mballesterDev/Gamer-signup-form-React",
+    "demoUrl": "https://mballesterdev.github.io/Gamer-signup-form-React/",
+    "image": "/uploads/gamer-signup.png",
+    "featured": false
+  },
+  {
     "id": "random-users",
     "title": "Random Users (prueba técnica)",
     "description": "Lista de usuarios de la API randomuser.me con filtro por país, ordenación, coloreado de filas, borrado y restauración del estado inicial.",

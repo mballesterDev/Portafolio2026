@@ -19,4 +19,5 @@ export const skills = [
 
 export const links = {
   github: 'https://github.com/mballesterDev',
+  email: 'mballesterdev@gmail.com',
 };

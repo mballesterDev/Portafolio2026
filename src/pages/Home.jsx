@@ -25,6 +25,7 @@ export default function Home() {
   const [error, setError] = useState(false);
   const [filter, setFilter] = useState(ALL);
   const aboutRef = useReveal();
+  const contactRef = useReveal();
 
   useEffect(() => {
     api.getProjects().then(setProjects).catch(() => setError(true));
@@ -48,6 +49,9 @@ export default function Home() {
             </a>
             <a href="#proyectos" className="hidden px-2 text-zinc-400 transition-colors hover:text-white sm:block">
               Proyectos
+            </a>
+            <a href="#contacto" className="hidden px-2 text-zinc-400 transition-colors hover:text-white sm:block">
+              Contacto
             </a>
             <a href={links.github} {...external} className="btn btn-ghost py-1.5">
               GitHub ↗
@@ -156,12 +160,36 @@ export default function Home() {
             ))}
           </div>
         </section>
+
+        <section id="contacto" className="scroll-mt-24 py-16">
+          <SectionTitle index="03 · Hablemos">Contacto</SectionTitle>
+          <div ref={contactRef} className="reveal glass mx-auto max-w-2xl p-6 text-center md:p-10">
+            <p className="leading-relaxed text-zinc-300 md:text-lg">
+              ¿Tienes un proyecto en mente o una oferta de trabajo? Escríbeme y te responderé lo antes posible.
+            </p>
+            <a href={`mailto:${links.email}`} className={`${link} mt-6 inline-block font-mono text-lg md:text-xl`}>
+              {links.email}
+            </a>
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <a href={`mailto:${links.email}`} className="btn btn-primary px-6 py-2.5">
+                Enviar email ✉
+              </a>
+              <a href={links.github} {...external} className="btn btn-ghost px-6 py-2.5">
+                GitHub ↗
+              </a>
+            </div>
+          </div>
+        </section>
       </main>
 
       <footer className="border-t border-white/5 py-8 text-center text-sm text-zinc-500">
         © {new Date().getFullYear()} ManelDev ·{' '}
         <a href={links.github} {...external} className="transition-colors hover:text-brand">
           GitHub
+        </a>{' '}
+        ·{' '}
+        <a href={`mailto:${links.email}`} className="transition-colors hover:text-brand">
+          {links.email}
         </a>
       </footer>
     </>
